@@ -1,0 +1,31 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		 
+		int mc = 0 , fc=0;
+		try
+		{
+			BufferedReader reader = new BufferedReader( new FileReader( "m:/cmarks.txt"));
+			
+			String content;
+					while( ( content = reader.readLine() )!= null)
+			{
+				if( content.indexOf("Mr.") != -1 )
+					mc++;
+				else
+					fc++;
+			}
+			reader.close();
+		}
+		catch( Exception e) {
+			
+		}
+		System.out.println("Male count = " + mc);
+		System.out.println("Female count = " + fc);
+	 
+	}
+}

@@ -1,0 +1,19 @@
+import java.util.Calendar;
+ 
+
+public class WrkStrings {
+
+	public static void main(String[] args) 
+	{
+		 Calendar cal = Calendar.getInstance();
+		 
+		 int h = cal.get( Calendar.HOUR_OF_DAY);
+		 
+		 if( h < 12 )
+			 System.out.println("GM");
+		 else if( h< 16 )
+			 System.out.println("GA");
+		 else
+			 System.out.println("GE");
+	}
+}

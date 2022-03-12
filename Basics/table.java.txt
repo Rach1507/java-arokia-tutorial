@@ -1,0 +1,16 @@
+
+	class  table
+	{
+	public static void main( String args[ ] )
+	{
+	  if( args.length == 1 )
+	  {
+	      int n = Integer.parseInt( args[0] );	
+	      for( int i=1; i<=10; i++)
+	      System.out.printf("%d x %d = %d\n", n , i , n*i);
+	  }
+	  else
+	   System.out.println("Help: java table <num>");
+
+	}
+	}

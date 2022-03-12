@@ -1,0 +1,36 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+		 String usn = "4VV05MH012";
+		 
+		 String college = usn.substring( 1 , 3 ).toUpperCase();
+		 
+		 String branch = usn.substring ( 5 , 7 ).toUpperCase();
+		 
+		 if( college.equals("NI"))
+			 System.out.println("NIE");
+		 
+		 else if( college.equals("JC"))
+			 System.out.println("JCE");
+		 
+		 else if(college.equals("VV"))
+			 System.out.println("Vidyavikas");
+		 else
+			 System.out.println("Some other college");
+		 
+		 if( branch.equals("CS"))
+			 System.out.println("Computer science");
+		 
+		 else if( branch.equals("EC"))
+			 System.out.println("Electronics");
+		 
+		 else if(branch.equals("IS"))
+			 System.out.println("Information science");
+		 else
+			 System.out.println("Some other branch");
+	}
+
+}

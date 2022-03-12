@@ -1,0 +1,32 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
+
+import stdio.Keyboard;
+public class WrkStrings {
+
+	public static void main(String[] args) throws IOException {
+		
+	// check for 2nd saturday of a month and sunday before attendance update
+		
+		Calendar cal = Calendar.getInstance();
+		
+		int wd = cal.get(Calendar.DAY_OF_WEEK);   // sun = 1  mon = 2 tue = 3...
+		int wm = cal.get(Calendar.WEEK_OF_MONTH);  // 1   2   3   4  
+		
+		if( wd == 1 || ( wd == 7 && wm ==2 ))
+			System.out.println("Holiday !!");
+		else
+		{
+			String filename = cal.get( Calendar.DAY_OF_MONTH) + ".txt";
+			PrintWriter p= new PrintWriter( new FileWriter( filename , true ));
+			System.out.println("Enter employ number ?");
+			int empno = Keyboard.readInt();
+			p.println( empno + "," + new Date().toString());
+			p.close();
+		}
+
+	}
+}

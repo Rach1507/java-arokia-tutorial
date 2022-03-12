@@ -1,0 +1,10 @@
+
+	class mx
+	{
+	public static void main( String args[ ] )
+	{
+	   int a = 10 , b = 200;
+	   int c = Math.max( a , b );
+	   System.out.println(c);
+	}
+	}

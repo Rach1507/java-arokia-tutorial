@@ -1,0 +1,21 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+		String name = "mR.Sxyza";
+		
+		name = name.toLowerCase();
+		
+		if( name.startsWith("mr."))
+			System.out.println("Male");
+		else if( name.startsWith("ms."))
+			System.out.println("Female");
+		else if( name.startsWith("mrs."))
+			System.out.println("Married female");
+		else
+			System.out.println("Invalid prefix/unknown");
+	}
+
+}

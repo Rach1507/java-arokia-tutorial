@@ -1,0 +1,19 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+	 String review="It......good.......good...........good......good";
+	 
+	 int pos = -1;
+	 while( true)
+	 {
+		 pos = review.indexOf("good", pos+1);
+		 if( pos == -1 )break;
+		 System.out.println(pos);
+	 }
+		 
+	}
+
+}

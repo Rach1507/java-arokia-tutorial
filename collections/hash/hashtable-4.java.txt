@@ -1,0 +1,76 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+import stdio.Keyboard;
+
+ 
+
+public class WrkStrings {
+
+	public static void main(String[] args) throws IOException {
+		
+		Hashtable<String,String> H = new Hashtable<String,String>(  );
+        
+		Hashtable<String,String> NH = new Hashtable<String,String>( );
+        
+        BufferedReader reader = new BufferedReader( new FileReader("m:/stdcode.txt"));
+        String rec;
+        while( ( rec = reader.readLine()) != null )
+        {
+            String [ ] kv = rec.split(" ");
+            H.put ( kv[0] , kv[1] );
+        }
+        reader.close();
+        
+        while( true )
+        {
+            System.out.println("1. Search");
+            System.out.println("2. Add new place");
+            System.out.println("3. Exit");
+            int ch = Keyboard.readInt();
+            if( ch == 1 )
+            {
+                String cityname = Keyboard.readString();
+                if( H.containsKey(cityname))
+                    System.out.println( "Stdcode  :" + H.get( cityname));
+                else
+                    System.out.println("City not found....");
+            }
+            else if( ch == 2 )
+            {
+                System.out.println("Enter cityname and stdcode");
+                String key = Keyboard.readString();
+                String val = Keyboard.readString();
+                
+                if( H.containsKey(key))
+                    System.out.println("City already present...");
+                else
+                {
+                    H.put( key , val);
+                    NH.put( key , val); // new entry added to NH hashtable
+                }
+            }
+            else if( ch == 3 )
+            {
+                PrintWriter p =new PrintWriter( new FileWriter( "m:/stdcode.txt", true ));
+                
+                Enumeration<String> e = NH.keys();
+                while( e.hasMoreElements())
+                {
+                    String key = e.nextElement();
+                    String val = NH.get( key );
+                    p.println( key + " " + val);
+                }
+                p.close();
+                return;
+            }
+        }
+        
+	}
+}

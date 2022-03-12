@@ -1,0 +1,20 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+		String login = "10:45:23";
+		
+		int h = Integer.parseInt(login.substring(0,2));
+		int m = Integer.parseInt(login.substring(3,5));
+		
+		if( h < 10 )
+			System.out.println("Early login");
+		else if( h == 10 && m == 0)
+			System.out.println("Exact login");
+		else
+			System.out.println("Late login");
+	}
+
+}

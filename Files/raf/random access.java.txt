@@ -1,0 +1,30 @@
+
+
+import java.io.*;
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		 try
+		 {
+			 RandomAccessFile fp = new RandomAccessFile("data.dat", "r");
+			 
+			 //Actual data stored inside file : 12,45,67,89,9,45,23,45,7,100
+			 
+			 fp.seek(16);   // move pointer to required byte 
+			 
+			 int x = fp.readInt();
+			 
+			 System.out.println(x);
+			 
+			 fp.close();
+			 
+		 }
+		 catch( Exception e) {
+			 
+			 
+		 }
+		 
+	 
+	}
+}

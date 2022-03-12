@@ -1,0 +1,25 @@
+
+import java.util.Scanner;
+
+public class WrkStrings {
+
+	public static void main(String[] args)
+	{
+		
+		Scanner key = new Scanner( System.in );
+		System.out.println("Enter unit and qty ?");
+		
+		float unit = key.nextFloat();
+		float qty = key.nextFloat();
+		
+		float total = unit * qty;
+		
+		float gst = total * 0.18f;
+		
+		float net = total + gst;
+		System.out.println("Total = " + total);
+		System.out.println("Tax  = "+ gst );
+		System.out.println("Net = "+ net );
+	}
+
+}

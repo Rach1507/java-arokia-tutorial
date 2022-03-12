@@ -1,0 +1,28 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
+
+import stdio.Keyboard;
+public class WrkStrings {
+
+	public static void main(String[] args) throws IOException {
+		
+		Calendar cal = Calendar.getInstance();
+		
+		String filename = cal.get( Calendar.DAY_OF_MONTH) + ".txt";
+		
+		
+		PrintWriter p= new PrintWriter( new FileWriter( filename , true ));
+		
+		System.out.println("Enter employ number ?");
+		int empno = Keyboard.readInt();
+		
+		p.println( empno + "," + new Date().toString());
+		
+		p.close();
+		
+
+	}
+}

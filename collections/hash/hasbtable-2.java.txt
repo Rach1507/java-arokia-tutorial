@@ -1,0 +1,84 @@
+
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+import stdio.Keyboard;
+
+class Product {
+	private String pid;
+	int cost;
+	String prod, company;
+	int qty;
+
+	public void FillDetails() {
+		System.out.println("Enter product-id , product , company ,  cost and qty");
+		pid = Keyboard.readString();
+		prod = Keyboard.readString();
+		company = Keyboard.readString();
+		cost = Keyboard.readInt();
+		qty = Keyboard.readInt();
+	}
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void updateQty() {
+		qty++;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
+	public String toString() {
+		return String.format("%-5s\t%-20s\t%-20s\t%d\t%d", pid, prod, company, cost, qty);
+	}
+}
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+		
+		Hashtable<String, Product> h = new Hashtable<String, Product>();
+		
+		while (true) {
+			System.out.println("1. Add to cart");
+			System.out.println("2. Delete from cart");
+			System.out.println("3. Display all (" + h.size() + ")");
+			System.out.println("4. Exit");
+			int ch = Keyboard.readInt();
+
+			if (ch == 1) {
+				Product p = new Product();
+				p.FillDetails();
+
+				if (h.containsKey(p.getPid())) {
+					Product cart_item = h.get(p.getPid());
+					cart_item.updateQty();
+					
+					h.remove(p.getPid());
+					
+					h.put(cart_item.getPid(), cart_item);
+				} else
+					h.put(p.getPid(), p);
+				
+			} else if (ch == 2) {
+				System.out.println("Enter product id to delete ?");
+				String t_pid = Keyboard.readString();
+				if (h.containsKey(t_pid))
+					h.remove(t_pid);
+				else
+					System.out.println("Product id not found...");
+			} else if (ch == 3) {
+				Enumeration<String> e = h.keys();
+				while (e.hasMoreElements()) {
+					String key =  e.nextElement();
+					System.out.println(h.get(key));
+				}
+			} else if (ch == 4)
+				System.exit(0);
+		}
+
+	}
+}

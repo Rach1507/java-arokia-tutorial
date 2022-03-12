@@ -1,0 +1,18 @@
+import java.util.Date;
+
+public class WrkStrings {
+
+	public static void main(String[] args) 
+	{
+		 Date d = new Date();
+		 
+		 System.out.println(d.toString());
+		 int h = d.getHours();
+		 if( h < 12 )
+			 System.out.println("GM");
+		 else if( h< 16 )
+			 System.out.println("GA");
+		 else
+			 System.out.println("GE");
+	}
+}

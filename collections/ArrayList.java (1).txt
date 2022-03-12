@@ -1,0 +1,51 @@
+
+ 
+import stdio.Keyboard;
+import java.util.ArrayList;
+ 
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		ArrayList<String> L = new ArrayList<String>( );
+		
+		while( true)
+		{
+			System.out.println("1. Login");
+			System.out.println("2. Logout");
+			System.out.println("3. List user("+L.size()+ ")");
+			System.out.println("4. Exit");
+			
+			int ch = Keyboard.readInt();
+			if( ch ==1 )
+			{
+				System.out.println("Username ?");
+				String name = Keyboard.readString();
+				
+				if( L.contains(name))
+					System.out.println("Plz select different name");
+				else
+					L.add(name);
+			}
+			else if( ch == 2 )
+			{
+				System.out.println("Username ?");
+				String name = Keyboard.readString();
+				
+				if( L.contains(name))
+					L.remove( name);
+				else
+					System.out.println("Invalid userid");
+			}
+			else if( ch ==3)
+			{
+				for( int i=0; i<L.size(); i++)
+					System.out.println( L.get( i));
+			}
+			else if( ch==4)
+				break;
+		}
+		
+		
+	}
+}

@@ -1,0 +1,137 @@
+/*
+Q.  Create hashtable 
+
+		key		value
+		-----------------------------------
+		regno	    student-object
+
+	Programmer should create a class 
+	called student with typical members
+	like regno , name , branch...etc
+
+	Program should be provided with 
+	option for
+
+	1. Add new student
+	2. Search on regno
+	3. Exit
+*/
+
+
+	import java.util.*;
+	import Stdio.Keyboard;
+
+	class Student
+	{
+	private int regno , semis;
+	private String name , branch;
+
+	public void setDetails( int regno , String name , String branch , int semis)
+	{
+	  this.regno = regno;
+	  this.name = name;
+	  this.branch = branch;
+	  this.semis = semis;
+	}
+
+	public String toString()
+	{
+	return String.format("%d\t%-20s\t%-20s\t%d", regno , name , branch , semis);
+	}
+
+	public int getRegno()
+	{
+	  return regno;	
+	}
+
+	}
+
+	class Utility
+	{
+	public static Student  Record( )
+	{
+	  Student s = new Student();
+	  Random rnd = new Random();
+
+	  int regno = rnd.nextInt( 50 );
+	  String name="";
+	  for(int i=1; i<=8; i++)	
+	   name = name + (char)(rnd.nextInt(25)+65);
+
+	  String branches[]={"CS", "IS","MECH", "CIVIL", "EC"};
+
+	  String branch = branches[ rnd.nextInt(4) ];
+	  int semis = rnd.nextInt( 8 )+1;
+	  s.setDetails( regno , name , branch , semis );
+	  return s;
+	}
+	
+	}
+	
+	class hashstu
+	{
+	public static void main(String v[])  
+	{
+
+	
+	Hashtable<String,Student>h = new Hashtable<String,Student>( );
+
+	while( true )
+	{
+	 System.out.println("1. New");
+	 System.out.println("2. Search");
+	 System.out.println("3. List all");
+	 System.out.println("4. Exit");
+
+	 int ch =  Stdio.Keyboard.ReadInt();
+
+	 switch(ch)
+	 {
+	 case 1:
+		 Student s = Utility.Record();
+		 System.out.println(s);
+
+		 if( h.containsKey( String.valueOf(s.getRegno( ) ) ) )
+		  System.out.println("Already exists.........");
+		 else
+	  	  h.put( String.valueOf(s.getRegno()) , s );
+		 break;
+	case 2:
+		System.out.println("Enter regno");
+		String regno =  Stdio.Keyboard.ReadString();
+		
+		if( h.containsKey( regno ))
+		System.out.println( h.get(regno) );
+		else
+		System.out.println("Not found...");
+		break;
+	case 3:
+		Enumeration e = h.keys();
+		while( e.hasMoreElements( ))	
+		{
+	  	     String key = (String)e.nextElement( );
+		      Student st = h.get( key );
+		     System.out.println(st);
+		}
+		break;
+	case 4:
+		System.exit(0);
+	}
+
+	}
+
+	}
+
+	}
+ 
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+		String email = "sharath90@yahoo.co.in";
+		
+		int p = email.indexOf("@");
+		if( p ==-1 )
+			System.out.println("Invalid email-id");
+		else
+		{
+			String user = email.substring(0,p);
+			String prov = email.substring(p+1);
+			System.out.println("Username = " + user );
+			System.out.println("Provider = " +prov);
+		}
+
+	}
+
+}

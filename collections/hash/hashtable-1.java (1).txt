@@ -1,0 +1,33 @@
+ 
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		  Hashtable<String,String> h = new Hashtable<String,String>();
+	        
+	        h.put("A", "123456785");
+	        h.put("B", "547658653");
+	        h.put("C","124325455");
+	        h.put("D", "1234567890");
+	        
+	        Scanner s = new Scanner(System.in);
+	        System.out.println("Enter name");
+	        String name = s.nextLine().toUpperCase();
+	        
+	        if(h.containsKey(name))
+	        {
+	            System.out.println("Number "+h.get(name));
+	        }
+	        else
+	        {
+	            System.out.println("Given name is not in list");
+	        }
+		 
+	}
+}
+ 

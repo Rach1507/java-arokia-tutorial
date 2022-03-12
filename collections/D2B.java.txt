@@ -1,0 +1,31 @@
+
+import java.util.Stack;
+
+import stdio.Keyboard;
+
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		
+		System.out.println("Enter number ?");
+		int num = Keyboard.readInt();
+		
+		Stack<Integer> s = new Stack<Integer>( );
+		
+		while( num != 0 )
+		{
+			int rem = num % 2;
+			s.push( rem );
+			num = num / 2;
+		}
+		
+		while( !s.empty())
+		{
+			System.out.print( s.pop() );
+		}
+		
+		 
+	 
+	}
+}

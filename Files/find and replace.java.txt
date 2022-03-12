@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+import stdio.Keyboard;
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		System.out.println("Enter source filename ?");
+		String filename = Keyboard.readString();
+		
+		File f = new File( filename);
+		if( f.exists() == false )
+		{
+			System.out.println("Source file not found...");
+			return;
+		}
+		
+		try
+		{
+			BufferedReader reader = new BufferedReader( new FileReader( filename));
+			String content="" , eachline;
+			
+			while( ( eachline = reader.readLine() )!=null)
+				content = content + eachline+ "\n";
+			
+			reader.close();
+			
+			System.out.println("Enter word to find and replace ?");
+			String find = Keyboard.readString();
+			String repl = Keyboard.readString();
+			
+			content = content.replace(find ,  repl );
+			
+			PrintWriter p= new PrintWriter( new FileWriter( filename ));
+			p.println( content );
+			p.close();
+			System.out.println("Replaced successfully !!");
+		}
+		catch( Exception e)
+		{
+			System.out.println( e );
+		}
+	 
+	}
+}

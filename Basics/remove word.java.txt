@@ -1,0 +1,24 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+	 String review="It.....very....good.......good....very.......good...very...good......";
+	 String word="very";
+	 int pos = -1;
+	 while( true)
+	 {
+		 pos = review.indexOf(word , pos+1);
+		 if( pos == -1 )break;
+		 
+		 String p1 = review.substring( 0 , pos);
+		 String p2 = review.substring( pos + word.length());
+		 review = p1 + p2;
+	 }
+	 
+	 System.out.println(review);
+		 
+	}
+
+}

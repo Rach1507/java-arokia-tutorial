@@ -1,0 +1,18 @@
+451 Mr.ramu 50 50 100
+722 Mr.harry 90 90 56
+631 Mr.yethish 56 39 89
+554 Ms.eshwari .m 91 85 23
+9951 Mr.pavankumar 90 78 45
+16 Mr.wahid 95 63 45
+77 Ms.arunakumari 27 21 23
+6438 Mr.sam 100 99 5
+39 Mr.mohit 99 91 45
+1560 Ms.sona 91 92 93
+711 Ms.roshini urs 90 45 32
+1352 Mr.madhu 99 91 34
+173 Ms.kavitha 100 56 67
+134 Mr.manu 89 100 89
+128 Mr.Rohitkumar 12 45 50
+981 Mr.Girish 100 23 45
+824 Mr.Lokesh 12 56 67
+431 Mr.Rajesh 90 89 34

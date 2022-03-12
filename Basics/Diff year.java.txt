@@ -1,0 +1,23 @@
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class WrkStrings {
+
+	public static void main(String[] args) 
+	{
+		 
+		Scanner key = new Scanner( System.in);
+		System.out.println("Enter date of birth(dd/mm/yyyy");
+		
+		String dob = key.nextLine();
+		
+		Calendar cal = Calendar.getInstance();
+		
+		int cy = Integer.parseInt( dob.split("/")[2] );
+		
+		int diff = cal.get( Calendar.YEAR) - cy;
+		
+		System.out.println("Difference = " + diff );
+		 
+	}
+}

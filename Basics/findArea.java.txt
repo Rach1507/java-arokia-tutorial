@@ -1,0 +1,16 @@
+
+	class findArea
+	{
+	public static void main( String args[ ])
+	{
+	  double r1 = Double.parseDouble ( args[0] );
+	  double r2 = Double.parseDouble ( args[1] );
+
+	  for( double r = r1 ; r<=r2; r+=0.1 )
+	  {
+	    double area = 3.14 * Math.pow( r , 2 );
+	    System.out.printf("Area = %.3f\n" , area );	
+	  }
+
+	}
+	}

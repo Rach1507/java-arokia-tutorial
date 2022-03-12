@@ -1,0 +1,74 @@
+ 
+import java.util.LinkedList;
+
+import stdio.Keyboard;
+
+
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		System.out.println("Enter 1st number :");
+		String n1 = Keyboard.readString();
+		
+		System.out.println("Enter 2nd number :");
+		String n2 = Keyboard.readString();
+		
+		LinkedList<Integer> L1 = new LinkedList<Integer>( );
+		LinkedList<Integer> L2 = new LinkedList<Integer>( );
+		LinkedList<Integer> L3 = new LinkedList<Integer>( );
+		
+		
+		for( int i=0; i<n1.length(); i++)
+		{
+			String eachdigit = n1.substring(i , i+1);
+			L1.addFirst(Integer.parseInt(eachdigit));
+		}
+			
+		for( int i=0; i<n2.length(); i++)
+		{
+			String eachdigit = n2.substring(i , i+1);
+			L2.addFirst(Integer.parseInt(eachdigit));
+		}
+		
+		
+		int carry = 0;
+		while( L1.size()!= 0 && L2.size()!=0)
+		{
+			int res = L1.getFirst() + L2.getFirst() + carry;
+			L3.addFirst( res % 10 );
+			carry = res/ 10;
+			
+			L1.removeFirst();
+			L2.removeFirst();
+		}
+		
+		LinkedList<Integer> temp;
+		
+		if( L1.size()==0)
+			temp = L2;
+		else
+			temp =  L1;
+		
+		while( temp.size()!=0)
+		{
+			int res = temp.getFirst() + carry;
+			L3.addFirst( res % 10 );
+			carry = res/ 10;
+			
+			temp.removeFirst();
+		}
+			
+		
+		if( carry != 0 )
+			L3.addFirst( carry);
+		
+		
+		System.out.println("Sum ");
+		
+		for( int i=0; i<L3.size(); i++)
+			System.out.print( L3.get(i));
+        
+	}
+}
+ 

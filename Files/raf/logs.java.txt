@@ -1,0 +1,80 @@
+
+import java.io.RandomAccessFile;
+import java.util.Date;
+import java.util.Random;
+
+import stdio.Keyboard;
+
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		 char calltypes [ ] = {'I' , 'O' , 'M'};
+		
+		 while( true )
+		 {
+			 System.out.println("1. New log");
+			 System.out.println("2. List logs");
+			 System.out.println("3. Goto specific record");
+			 System.out.println("4. Clear all");
+			 System.out.println("5. Exit");
+			 
+			 int ch = Keyboard.readInt();
+			 
+			 if( ch == 1 )
+			 {
+				 Random rnd = new Random();
+				 
+				 long mobile = Long.parseLong("98451" + (10000+rnd.nextInt(89999)));
+				 char type = calltypes[ rnd.nextInt( 3 ) ];
+				 int duration = rnd.nextInt(1000);
+				 String dt = new Date().toString();
+				 System.out.println("--------------------------------------------------------");	
+				 System.out.println("Mobile number               :" + mobile);
+				 System.out.println("Type                        :" + type);
+				 System.out.println("Duration                    :" + duration);
+				 System.out.println("DateTime                    :" + dt);
+				 System.out.println("--------------------------------------------------------");
+				 
+				 try
+				 {
+					 RandomAccessFile fp = new RandomAccessFile( "calls.dat", "rw");
+					 fp.seek( fp.length());  // move pointer to end
+
+7015279304861
+					 
+					 fp.writeLong(mobile);
+					 fp.writeChar(type);
+					 fp.writeInt(duration);
+					 fp.writeUTF(dt);
+					 
+					 fp.close();
+				 }
+				 catch( Exception e) {  }
+			 }
+			 else if( ch == 2 )
+			 {
+				 try
+				 {
+					 RandomAccessFile fp = new RandomAccessFile("calls.dat", "r");
+					 int n=  (int)(fp.length()/44);  // when we tested after 1st record saving , its found as 44/record
+					 for( int i=0; i<n; i++)
+					 {
+						 long mob = fp.readLong();
+						 char call = fp.readChar();
+						 int calldur = fp.readInt();
+						 String time = fp.readUTF();
+						 
+						 System.out.println( mob + "\t" + call + "\t" + calldur + "\t" + time);
+					 }
+					 fp.close();
+				 }
+				 catch( Exception e) {  }
+			 }
+			 else if( ch == 5)
+				 return;
+		 }
+		 
+	 
+	}
+}

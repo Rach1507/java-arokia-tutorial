@@ -1,0 +1,28 @@
+
+import java.io.*;
+public class WrkStrings {
+
+	public static void main(String[] args)  
+	{
+		 try
+		 {
+			 RandomAccessFile fp = new RandomAccessFile("data.dat", "rw");
+			 
+			 int a[ ] = { 12,45,67,89,9,45,23,45,7,100};
+			 
+			 for( int i=0; i < a.length ; i++)
+			 {
+				 fp.writeInt( a[ i ] );
+			 }
+			 
+			 fp.close();
+			 
+		 }
+		 catch( Exception e) {
+			 
+			 
+		 }
+		 
+	 
+	}
+}

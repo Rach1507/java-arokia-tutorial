@@ -1,0 +1,37 @@
+ 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
+
+import stdio.Keyboard;
+public class WrkStrings {
+
+	public static void main(String[] args) throws IOException    
+	{
+ 		System.out.println("Enter name ?");
+ 		String name = Keyboard.readString().toLowerCase();
+ 		
+ 		String filename;
+ 		
+ 		if( name.startsWith("mr."))
+ 			filename = "male.txt";
+ 		else
+ 			filename = "female.txt";
+ 		
+ 		
+ 		PrintWriter p = new PrintWriter( new FileWriter( filename , true));
+ 		p.println( name);
+ 		p.close();
+		
+	}
+}
+
+
+
+
+
+
+

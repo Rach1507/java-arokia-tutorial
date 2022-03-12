@@ -1,0 +1,19 @@
+
+
+public class WrkStrings {
+
+	public static void main(String[] args) {
+
+	 String msg="elephantsearch";
+	 String vowels="aeiou";
+
+	 int c=0;
+	 
+	 for( int i=0; i<msg.length(); i++)
+		 if( vowels.indexOf( msg.substring(i,i+1) )!= -1) c++;
+	  
+	 System.out.println("Vowels count = " + c );
+	 
+	}
+
+}

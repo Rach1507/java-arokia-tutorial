@@ -1,0 +1,78 @@
+ 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
+
+import stdio.Keyboard;
+public class WrkStrings {
+
+	public static void main(String[] args) throws IOException    
+	{
+ 			
+		while( true)
+		{
+			System.out.println("1. Add task");
+			System.out.println("2. List all");
+			System.out.println("3. List based on priority");
+			System.out.println("4. Exit");
+			
+			int choice = Keyboard.readInt();
+			if( choice ==1 )
+			{
+				System.out.println("Enter task ?");
+				String task = Keyboard.readString();
+				Random rnd = new Random();
+				int plevel = 1+rnd.nextInt(3);
+				
+				PrintWriter p = new PrintWriter( new FileWriter("c:/ftp/task.txt", true));
+				p.println(plevel + ":" + task);
+				p.close();
+			}
+			else if( choice ==2 )
+			{
+				BufferedReader reader = new BufferedReader( new FileReader("c:/ftp/task.txt"));
+				String record;
+				int Ln = 1;
+				System.out.println("---------------------------------------------");
+				while( (record = reader.readLine())!=null )
+					System.out.printf("%d)%s\n", Ln++ ,  record);
+				
+				
+				System.out.println("---------------------------------------------");
+				reader.close();
+			}
+			else if( choice ==3  )
+			{
+				System.out.println("Enter priority number (1,2,3) ?");
+				String pno = Keyboard.readString();
+				
+				BufferedReader reader = new BufferedReader( new FileReader("c:/ftp/task.txt"));
+				String record;
+				int Ln = 1;
+				System.out.println("---------------------------------------------");
+				while( (record = reader.readLine())!=null )
+				{
+					if( record.startsWith( pno ))
+						System.out.printf("%d)%s\n", Ln++ ,  record.split(":")[1]);
+				}
+				
+				System.out.println("---------------------------------------------");
+				reader.close();
+			}
+			else if( choice==4)
+				break;
+		}
+		
+		
+	}
+}
+
+
+
+
+
+
+

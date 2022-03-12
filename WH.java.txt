@@ -1,0 +1,21 @@
+import java.util.Calendar;
+ 
+
+public class WrkStrings {
+
+	public static void main(String[] args) 
+	{
+		 Calendar cal = Calendar.getInstance();
+		 
+		 int dw = cal.get(Calendar.DAY_OF_WEEK);
+		 
+		 int wm = cal.get( Calendar.WEEK_OF_MONTH);
+		 
+		 if( dw == 1 || (dw==7 && wm==2))
+			 System.out.println("Holiday !!");
+		 else
+			 System.out.println("Working day !!");
+		 
+		 
+	}
+}

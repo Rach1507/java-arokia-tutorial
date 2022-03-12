@@ -1,0 +1,14 @@
+
+
+	class create
+	{
+	public static void main( String args[ ] )
+	{
+	   int r1 = Integer.parseInt( args[0] );
+	   int r2 = Integer.parseInt( args[1] );
+
+	   for( int i=r1+1 ; i < r2 ; i++)
+	     System.out.printf("Creating user-%d\n", i);
+	
+	}
+	}
